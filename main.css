@@ -4,7 +4,7 @@
     --border: #88e7a5;
     --font: #ff6a6a;
     --circle:#caa9ff;
-    --times:#ff9970;
+    --times:#ff7741;
     --background:#313131;
 }
 *, *::before, *::after {
@@ -46,6 +46,15 @@ body{
     font-size: 2rem;
     justify-content: center;
     align-items: center;
+}
+#resDiv>svg{
+    margin: 0 15px;
+}
+#resDiv > .fa-dot-circle{
+    color: var(--circle);
+}
+#resDiv > .fa-times{
+    color: var(--times);
 }
 
 @keyframes resDiv {

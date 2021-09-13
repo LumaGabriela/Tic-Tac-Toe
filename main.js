@@ -15,8 +15,8 @@ const createPlayer = (name, choice)=> {
     const setChoice = choice
     return {setName, setChoice}
 }
-const player1 = createPlayer('Player', cross)
-const player2 = createPlayer('Robot', circle)
+const player1 = createPlayer('Player', circle)
+const player2 = createPlayer('Robot', cross)
      //      //   Add event listeners   //     //
 gameboard.square.forEach(sqr =>{
     sqr.addEventListener('mouseup', playGame)
@@ -104,9 +104,9 @@ function stopGame(){
 //      //   Display the winner message   //      //
 function winGame(){
     if(gameboard.sayResult === player1.choice){
-        gameboard.resDiv.innerHTML = `${player1.setChoice}  won`
+        gameboard.resDiv.innerHTML = `${player1.setChoice}   won`
     }else if(gameboard.sayResult === player2.choice){
-        gameboard.resDiv.innerHTML = `${player2.setChoice}  won`
+        gameboard.resDiv.innerHTML = `${player2.setChoice}   won`
     }
 }
 //      //  Restart game    //      //

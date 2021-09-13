@@ -3,10 +3,11 @@ const circle = '<i class="fas fa-dot-circle"></i>'
 const cross = '<i class="fas fa-times"></i>'
 //       //      //     //
 const gameboard = (()=>{
+    const gmboard = document.querySelector('#gameboard')
     const square = document.querySelectorAll('.block')
     const resDiv = document.querySelector("#resDiv")
     const sayResult = ''
-    return {square, sayResult, resDiv}
+    return {square, sayResult, resDiv, gmboard}
 })()
 //      //      //      //
 const createPlayer = (name, choice)=> {
@@ -28,24 +29,32 @@ function playGame(choice) {
         choice = player1.setChoice
         this.innerHTML = choice
         turn ++
-        gameboard.resDiv.innerText = `O's turn.`
+        gameboard.resDiv.innerHTML = `${player2.setChoice}'s  turn.`
+        gameboard.resDiv.style.animation = 'resDiv .6s ease'
+        setTimeout(animateDiv, 500)
+        
     }else if(this.innerHTML === '' && turn%2 !== 0){
         choice = player2.setChoice
         this.innerHTML = choice
         turn ++
-        gameboard.resDiv.innerText = `X's turn.`
+        gameboard.resDiv.innerHTML = `${player1.setChoice}'s  turn.`
+        gameboard.resDiv.style.animation = 'resDiv .6s ease'
+        setTimeout(animateDiv, 500)
     }
     winVerify()
     drawGame()
 }
 
+function animateDiv(){
+    gameboard.resDiv.style.animation = ''
+}
 function drawGame(){
     let count = 0
     gameboard.square.forEach((sqr)=>{
         if(sqr.innerHTML!== ''){count ++}
     })
     if(count === 9){
-        gameboard.resDiv.innerText = 'Draw Game Patos'
+        gameboard.resDiv.innerText = 'Draw Game'
     }
 }
 function winVerify(){
@@ -95,9 +104,9 @@ function stopGame(){
 //      //   Display the winner message   //      //
 function winGame(){
     if(gameboard.sayResult === player1.choice){
-        gameboard.resDiv.innerText = 'circle won'
+        gameboard.resDiv.innerHTML = `${player1.setChoice}  won`
     }else if(gameboard.sayResult === player2.choice){
-        gameboard.resDiv.innerText = 'cross won'
+        gameboard.resDiv.innerHTML = `${player2.setChoice}  won`
     }
 }
 //      //  Restart game    //      //
@@ -108,5 +117,10 @@ function restartGame(){
         sqr.innerHTML = ''
         sqr.addEventListener('mouseup', playGame)
     })
+    gameboard.gmboard.style.animation = 'resDiv .6s ease'
+    setTimeout(animateGb, 600)
     
+}
+function animateGb(){
+    gameboard.gmboard.style.animation = ''
 }

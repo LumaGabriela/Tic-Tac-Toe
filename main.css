@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&family=Varela+Round&display=swap');
 :root{
     --border: #88e7a5;
-    --font: #f0f0f0;
+    --font: #ff6a6a;
     --circle:#caa9ff;
     --times:#ff9970;
     --background:#313131;
@@ -12,9 +12,50 @@
 }
 html{width: 100%; height: 100%;}
 body{
+    width: 100%;
+    margin: 0;
     font-family: 'Poppins', sans-serif;
     background: var(--background);
     color: var(--font);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.header{
+    display: flex;
+    width: 100%; height:50px ;
+    justify-content: center;
+}
+.header>h1{
+    margin: 0;
+}
+.header .header-link{
+    color: transparent;
+    text-decoration: none;
+    font-size: 2.3rem;
+    font-weight: 900;
+    background: linear-gradient(90deg, var(--circle),var(--times),var(--border));
+    background-clip: text;
+    -webkit-background-clip: text;
+}
+#resDiv{
+    display: flex;
+    margin: 20px 0;
+    height: 80px;
+    font-size: 2rem;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes resDiv {
+    20%{ filter: blur(5px);}
+    100%{ filter: blur(0);}
+}
+.game{
+    display: flex; align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 #gameboard{
     display: grid;
@@ -25,6 +66,8 @@ body{
     grid-template-rows: repeat(3,1fr);
     padding: 10px;
     border-radius: 8px;
+    margin: 0 0 15px;
+    /* animation: resDiv .6s ease; */
 }
 .block{
     display: flex;
@@ -54,12 +97,12 @@ body{
     100%{transform: scaleX(1) scaleY(1);}
 }
 /* O and X icons */
-.fa-times {
+#gameboard .fa-times {
     height: 60% !important; width: 60% !important;
     color: var(--times) !important;
     animation: blocks 1s ease-out;
 }
-.fa-dot-circle{
+#gameboard .fa-dot-circle{
     height: 60% !important; width: 60% !important;
     color: var(--circle);
     animation: blocks .4s ease-out;
@@ -67,4 +110,11 @@ body{
 .game #restart{
     cursor: pointer;
     font-family: inherit;
+    font-weight: 900;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    border:none;
+    background: var(--font);
+    color: var(--background);
+    height: 30px; width: 120px;
 }

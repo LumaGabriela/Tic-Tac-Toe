@@ -83,6 +83,7 @@ function winVerify(){
     for(combination in newCombo){
         if(JSON.stringify(newCombo[combination]) === JSON.stringify(circleCombo)){
             gameboard.sayResult = player1.choice
+            console.log(player1.choice)
             winGame()
             stopGame()
         }
@@ -90,6 +91,7 @@ function winVerify(){
     for(combination in newCombo){
         if(JSON.stringify(newCombo[combination]) === JSON.stringify(crossCombo)){
             gameboard.sayResult = player2.choice
+            console.log(player2.choice)
             winGame()
             stopGame()
         }

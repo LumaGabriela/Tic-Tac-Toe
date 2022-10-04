@@ -105,9 +105,9 @@ function stopGame(){
 }
 //      //   Display the winner message   //      //
 function winGame(){
-    if(gameboard.sayResult === player1.choice){
+    if(gameboard.sayResult === player1.setChoice){
         gameboard.resDiv.innerHTML = `${player1.setChoice}   won`
-    }else if(gameboard.sayResult === player2.choice){
+    }else if(gameboard.sayResult === player2.setChoice){
         gameboard.resDiv.innerHTML = `${player2.setChoice}   won`
     }
 }
